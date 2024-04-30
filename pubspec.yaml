@@ -17,6 +17,13 @@ dev_dependencies:
   flutter_test: 
     sdk: flutter
 
-flutter: 
+flutter:
+  assets:
+    - assets/images/
+    - assets/images/icons/
+  fonts:
+    - family: Pretendered
+      fonts:
+        - asset: assets/fonts/pretendered/Pretendard-Regular.otf
   uses-material-design: true
 
