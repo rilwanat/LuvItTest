@@ -1,0 +1,22 @@
+name: luvit
+version: 1.0.0+1
+publish_to: none
+description: LuvIt - Dating Cards Demo by Rilwan Adedeji (rilwan.at@gmail.com)
+environment: 
+  sdk: '>=3.1.0 <4.0.0'
+
+dependencies: 
+  cupertino_icons: ^1.0.2
+  shared_preferences: ^2.2.3
+  get: 4.6.6
+  flutter: 
+    sdk: flutter
+
+dev_dependencies: 
+  flutter_lints: ^2.0.0
+  flutter_test: 
+    sdk: flutter
+
+flutter: 
+  uses-material-design: true
+
