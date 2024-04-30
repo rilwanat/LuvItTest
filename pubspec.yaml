@@ -24,6 +24,6 @@ flutter:
   fonts:
     - family: Pretendered
       fonts:
-        - asset: assets/fonts/pretendered/Pretendard-Regular.otf
+        - asset: assets/fonts/pretendered/Pretendard-Light.otf
   uses-material-design: true
 

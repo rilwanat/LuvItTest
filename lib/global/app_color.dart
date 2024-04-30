@@ -10,6 +10,8 @@ class AppColors {
 
   static const datingPlacesColor = Color(0xFF3A3A3A);
 
+  static const datingChineseColor = Color(0xFFFCFCFC);
+
   static const sample = Color(0xFF00FF00);
 
 
