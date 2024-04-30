@@ -18,113 +18,110 @@ class _CustomStepperState extends State<CustomStepper> {
 
   @override
   Widget build(BuildContext context) {
-    return Obx(() => SizedBox(
-          width: width(context) * 0.4,
+    return Obx(() => Container(
+      margin: const EdgeInsets.only(top: 2),
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+          width: double.infinity,//width(context) * 0.4,
+
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    //onboardingCtrl.showTopSnackBar("", "1");
                     mainProfileCtrl.setStep(1);
                   },
                   child: Container(
-                    //color: inspCtrl.currentStep > 0 ? Colors.black : Colors.grey[300],
-                    height: 4,
+                    height: 3,
                     decoration: BoxDecoration(
                       color: mainProfileCtrl.currentStep > 0
                           ? AppColors.datingCardsPink
-                          : Colors.grey[300],
-                      borderRadius: BorderRadius.only(
+                          : AppColors.datingStepperInactive,
+                      borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(4),
                           bottomLeft: Radius.circular(4)),
                     ),
                   ),
                 ),
               ),
-              // const SizedBox(
-              //   width: 4,
-              // ),
+              const SizedBox(
+                width: 4,
+              ),
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    //onboardingCtrl.showTopSnackBar("", "2");
                     mainProfileCtrl.setStep(2);
                   },
                   child: Container(
-                    //color: inspCtrl.currentStep > 1 ? Colors.black : Colors.grey[300],
-                    height: 4,
+                    height: 3,
                     decoration: BoxDecoration(
                       color: mainProfileCtrl.currentStep > 1
                           ? AppColors.datingCardsPink
-                          : Colors.grey[300],
+                          : AppColors.datingStepperInactive,
                       //borderRadius: BorderRadius.all(Radius.circular(4)),
                     ),
                   ),
                 ),
               ),
-              // const SizedBox(
-              //   width: 4,
-              // ),
+              const SizedBox(
+                width: 4,
+              ),
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    //onboardingCtrl.showTopSnackBar("", "3");
                     mainProfileCtrl.setStep(3);
                   },
                   child: Container(
-                    //color: inspCtrl.currentStep > 2 ? Colors.black : Colors.grey[300],
-                    height: 4,
+                    height: 3,
                     decoration: BoxDecoration(
                       color: mainProfileCtrl.currentStep > 2
                           ? AppColors.datingCardsPink
-                          : Colors.grey[300],
+                          : AppColors.datingStepperInactive,
                       //borderRadius: BorderRadius.all(Radius.circular(4)),
                     ),
                   ),
                 ),
               ),
-              // const SizedBox(
-              //   width: 4,
-              // ),
+              const SizedBox(
+                width: 4,
+              ),
               Expanded(
                 child: GestureDetector(
                   onTap: () {
-                    //onboardingCtrl.showTopSnackBar("", "4");
                     mainProfileCtrl.setStep(4);
                   },
                   child: Container(
-                    //color: inspCtrl.currentStep > 3 ? Colors.black : Colors.grey[300],
-                    height: 4,
+                    height: 3,
                     decoration: BoxDecoration(
                       color: mainProfileCtrl.currentStep > 3
                           ? AppColors.datingCardsPink
-                          : Colors.grey[300],
-                      borderRadius: BorderRadius.only(
+                          : AppColors.datingStepperInactive,
+                      borderRadius: const BorderRadius.only(
                           topRight: Radius.circular(4),
                           bottomRight: Radius.circular(4)),
                     ),
                   ),
                 ),
               ),
-              /*const SizedBox(width: Dimensions.PADDING_SIZE_SMALL,),
+              const SizedBox(
+                width: 4,
+              ),
           Expanded(
             child: GestureDetector(
               onTap: () {
-                inspCtrl.showTopSnackBar("", "5");
-                inspCtrl.setStep(5);
+                //mainProfileCtrl.showTopSnackBar("", "5");
+                mainProfileCtrl.setStep(5);
               },
               child: Container(
                 //color: inspCtrl.currentStep > 4 ? Colors.black : Colors.grey[300],
                 height: 4,
                 decoration: BoxDecoration(
-                  color: inspCtrl.currentStep > 4 ? Colors.black : Colors.grey[300],
-                  borderRadius: BorderRadius.all(Radius.circular(4)),
+                  color: mainProfileCtrl.currentStep > 4 ? AppColors.datingCardsPink : AppColors.datingStepperInactive,
+                  borderRadius: const BorderRadius.all(Radius.circular(4)),
                 ),
               ),
             ),
-          ),*/
+          ),
             ],
           ),
         ));

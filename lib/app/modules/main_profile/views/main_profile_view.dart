@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:luvit/global/app_color.dart';
 import 'package:luvit/global/screen_size.dart';
+import 'package:luvit/global/widgets/custom_stepper.dart';
 
 import '../controllers/main_profile_controller.dart';
 
@@ -11,7 +12,7 @@ class MainProfileView extends GetView<MainProfileController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: AppColors.datingCardsBackground,
+      backgroundColor: AppColors.datingCardsBackground,
       // appBar: AppBar(
       //   title: const Text('HomeView'),
       //   centerTitle: true,
@@ -39,7 +40,6 @@ class MainProfileView extends GetView<MainProfileController> {
                       SizedBox(
                         width: 28, height: 28,
                         child: Image.asset("assets/images/icons/btcon_28.png"),
-                        // Icon(Icons.place_outlined, color: AppColors.datingPlacesColor, size: 28,),
                       ),
                       SizedBox(
                           height: 20,
@@ -112,166 +112,202 @@ class MainProfileView extends GetView<MainProfileController> {
               // ),
               child: Stack(
                 children: [
+                  
+                  Positioned.fill(
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(16),
+                      child: Image.asset(
+                        'assets/images/086e98d6b549c3407b40a418953d499f.png', // Replace 'your_image.png' with your image asset path
+                        fit: BoxFit.cover, // Adjusts the image to cover the entire container
+                      ),
+                    ),
+                  ),
+
 
                   Container(
                     width: 340,
                     height:  height(context) * .8,//600,
                     padding: const EdgeInsets.fromLTRB(5, 10, 5, 6),
                     decoration: BoxDecoration(
-                        color: AppColors.sample,//datingCardsBlack,
-                        border: Border.all(width: 1, color: AppColors.datingCardsBorder),
-                        //borderRadius: BorderRadius.circular(100)
+                        // color: AppColors.sample,//datingCardsBlack,
+                        //border: Border.all(width: 1, color: AppColors.datingCardsBorder),
+                        borderRadius: BorderRadius.circular(16)
                     ),
                     child: Stack(
                       children: [
 
+
+
+                        const CustomStepper(),
+
+
                         Container(
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          alignment: Alignment.center,
                           width: 340,
-                          height: height(context) * .8,
-                          margin: const EdgeInsets.only(top: 449),
+                          height: 151,//height(context) * .8,
+                          margin: const EdgeInsets.only(top: 400),//449),
                           // color: Colors.white,
                           child: Container(
                             width: 292,
                             height: 151,
                             padding: EdgeInsets.zero,
                             decoration: const BoxDecoration(
-                              color: Colors.deepOrange,
+                              // color: Colors.deepOrange,
                             ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.start,
+                            child: Column(
                               children: [
-                                Container(
-                                  width: 198,
-                                  height: 91,
-                                  color: AppColors.datingPlacesColor,
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Container(
-                                        width: 72,//82,
-                                        height: 30,
-                                        decoration: BoxDecoration(
-                                          color: AppColors.datingCardsPink,//datingCardsBlack,
-                                          // border: Border.all(width: 1, color: AppColors.datingCardsBorder),
-                                          borderRadius: BorderRadius.circular(100)
-                                        ),
-                                        child: Row(
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          children: [
-                                            Container(
-                                              // color: AppColors.datingCardsWhite,
-                                              padding: const EdgeInsets.all(4),
-                                              width: 20,
-                                              height: 20,
-                                              child: Image.asset("assets/images/icons/Star 1-2.png"),
-                                            ),
-                                            const Text(
-                                              '29,930',
-                                              style: TextStyle(
-                                                color: AppColors.datingCardsWhite,
-                                                fontFamily: 'Pretendard',
-                                                fontSize: 14,
-                                                fontWeight: FontWeight.w500,
-                                                height: 1.19285714, // Calculated line height: 16.71px / 14px = 1.19285714
-                                                letterSpacing: -0.6,
-                                                // textAlign: TextAlign.left, // Text align left is default, no need to specify
-                                              ),
-                                            ),
-                                            const SizedBox(
-                                              width: 6,
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                      Column(
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Container(
+                                      width: 198,
+                                      height: 91,
+                                      // color: AppColors.datingPlacesColor,
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
-                                          Row(
-                                            children: [
-                                              Container(
-                                                child: const Text(
-                                                  '잭과분홍콩나물',
+                                          Container(
+                                            width: 72,//82,
+                                            height: 30,
+                                            decoration: BoxDecoration(
+                                              color: AppColors.datingCardsPink,//datingCardsBlack,
+                                              // border: Border.all(width: 1, color: AppColors.datingCardsBorder),
+                                              borderRadius: BorderRadius.circular(100)
+                                            ),
+                                            child: Row(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                Container(
+                                                  // color: AppColors.datingCardsWhite,
+                                                  padding: const EdgeInsets.all(4),
+                                                  width: 20,
+                                                  height: 20,
+                                                  child: Image.asset("assets/images/icons/Star 1-2.png"),
+                                                ),
+                                                const Text(
+                                                  '29,930',
                                                   style: TextStyle(
                                                     color: AppColors.datingCardsWhite,
                                                     fontFamily: 'Pretendard',
-                                                    fontSize: 28,
-                                                    fontWeight: FontWeight.w700,
+                                                    fontSize: 14,
+                                                    fontWeight: FontWeight.w500,
                                                     height: 1.19285714, // Calculated line height: 16.71px / 14px = 1.19285714
                                                     letterSpacing: -0.6,
                                                     // textAlign: TextAlign.left, // Text align left is default, no need to specify
                                                   ),
                                                 ),
+                                                const SizedBox(
+                                                  width: 6,
+                                                )
+                                              ],
+                                            ),
+                                          ),
+                                          Column(
+                                            children: [
+                                              Row(
+                                                children: [
+                                                  Container(
+                                                    child: const Text(
+                                                      '잭과분홍콩나물',
+                                                      style: TextStyle(
+                                                        color: AppColors.datingCardsWhite,
+                                                        fontFamily: 'Pretendard',
+                                                        fontSize: 28,
+                                                        fontWeight: FontWeight.w700,
+                                                        height: 1.19285714, // Calculated line height: 16.71px / 14px = 1.19285714
+                                                        letterSpacing: -0.6,
+                                                        // textAlign: TextAlign.left, // Text align left is default, no need to specify
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  const Text(
+                                                    '25',
+                                                    style: TextStyle(
+                                                      color: AppColors.datingCardsWhite,
+                                                      fontFamily: 'Pretendard',
+                                                      fontSize: 24,
+                                                      fontWeight: FontWeight.w300,
+                                                      height: 1.19285714, // Calculated line height: 16.71px / 14px = 1.19285714
+                                                      letterSpacing: -0.6,
+                                                      // textAlign: TextAlign.left, // Text align left is default, no need to specify
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
-                                              const Text(
-                                                '25',
-                                                style: TextStyle(
-                                                  color: AppColors.datingCardsWhite,
-                                                  fontFamily: 'Pretendard',
-                                                  fontSize: 24,
-                                                  fontWeight: FontWeight.w300,
-                                                  height: 1.19285714, // Calculated line height: 16.71px / 14px = 1.19285714
-                                                  letterSpacing: -0.6,
-                                                  // textAlign: TextAlign.left, // Text align left is default, no need to specify
+                                              Container(
+                                                child: const Row(
+                                                  children: [
+                                                    Text(
+                                                      '서울',
+                                                      style: TextStyle(
+                                                        color: AppColors.datingCardsWhite,
+                                                        fontFamily: 'Pretendard',
+                                                        fontSize: 15,
+                                                        fontWeight: FontWeight.w300,
+                                                        height: 1.19285714, // Calculated line height: 16.71px / 14px = 1.19285714
+                                                        letterSpacing: -0.6,
+                                                        // textAlign: TextAlign.left, // Text align left is default, no need to specify
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      '.',
+                                                      style: TextStyle(
+                                                        color: AppColors.datingCardsWhite,
+                                                        fontFamily: 'Pretendard',
+                                                        fontSize: 15,
+                                                        fontWeight: FontWeight.w300,
+                                                        height: 1.19285714, // Calculated line height: 16.71px / 14px = 1.19285714
+                                                        letterSpacing: -0.6,
+                                                        // textAlign: TextAlign.left, // Text align left is default, no need to specify
+                                                      ),
+                                                    ),
+                                                    Text(
+                                                      '2km 거리에 있음',
+                                                      style: TextStyle(
+                                                        color: AppColors.datingCardsWhite,
+                                                        fontFamily: 'Pretendard',
+                                                        fontSize: 15,
+                                                        fontWeight: FontWeight.w300,
+                                                        height: 1.19285714, // Calculated line height: 16.71px / 14px = 1.19285714
+                                                        letterSpacing: -0.6,
+                                                        // textAlign: TextAlign.left, // Text align left is default, no need to specify
+                                                      ),
+                                                    ),
+                                                  ],
                                                 ),
                                               ),
                                             ],
                                           ),
-                                          Container(
-                                            child: const Row(
-                                              children: [
-                                                Text(
-                                                  '서울',
-                                                  style: TextStyle(
-                                                    color: AppColors.datingCardsWhite,
-                                                    fontFamily: 'Pretendard',
-                                                    fontSize: 15,
-                                                    fontWeight: FontWeight.w300,
-                                                    height: 1.19285714, // Calculated line height: 16.71px / 14px = 1.19285714
-                                                    letterSpacing: -0.6,
-                                                    // textAlign: TextAlign.left, // Text align left is default, no need to specify
-                                                  ),
-                                                ),
-                                                Text(
-                                                  '.',
-                                                  style: TextStyle(
-                                                    color: AppColors.datingCardsWhite,
-                                                    fontFamily: 'Pretendard',
-                                                    fontSize: 15,
-                                                    fontWeight: FontWeight.w300,
-                                                    height: 1.19285714, // Calculated line height: 16.71px / 14px = 1.19285714
-                                                    letterSpacing: -0.6,
-                                                    // textAlign: TextAlign.left, // Text align left is default, no need to specify
-                                                  ),
-                                                ),
-                                                Text(
-                                                  '2km 거리에 있음',
-                                                  style: TextStyle(
-                                                    color: AppColors.datingCardsWhite,
-                                                    fontFamily: 'Pretendard',
-                                                    fontSize: 15,
-                                                    fontWeight: FontWeight.w300,
-                                                    height: 1.19285714, // Calculated line height: 16.71px / 14px = 1.19285714
-                                                    letterSpacing: -0.6,
-                                                    // textAlign: TextAlign.left, // Text align left is default, no need to specify
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
+
                                         ],
                                       ),
+                                    ),
+                                    Container(
+                                      // width: 198,
+                                      height: 91,
+                                      // color: AppColors.datingPlacesColor,
+                                      child: Align(
+                                        alignment: Alignment.bottomRight,
+                                        child: Container(
+                                          // height: 91,
+                                          // color: AppColors.datingPlacesColor,
+                                          child: SizedBox(
+                                            width: 48, height: 48,
+                                              child: Image.asset("assets/images/icons/btcon_48.png")),
+                                        ),
+                                      ),
+                                    ),
 
-                                    ],
-                                  ),
+                                  ],
                                 ),
-                                Align(
-                                  alignment: Alignment.bottomRight,
-                                  child: Container(
-                                    child: SizedBox(
-                                      width: 48, height: 48,
-                                        child: Image.asset("assets/images/icons/btcon_48.png")),
-                                  ),
-                                )
+                                Expanded(child:
+                                SizedBox(
+                                  width: 20, height: 20,
+                                  child: Image.asset("assets/images/icons/icon_20.png"),
+                                ),)
+
                               ],
                             ),
                           ),

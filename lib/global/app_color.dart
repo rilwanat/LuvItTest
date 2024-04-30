@@ -14,5 +14,6 @@ class AppColors {
 
   static const sample = Color(0xFF00FF00);
 
+  static const datingStepperInactive = Color(0xFF202020);
 
 }
