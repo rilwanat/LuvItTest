@@ -34,7 +34,7 @@ class _CustomStepperState extends State<CustomStepper> {
                   child: Container(
                     height: 3,
                     decoration: BoxDecoration(
-                      color: mainProfileCtrl.currentStep > 0
+                      color: mainProfileCtrl.currentStep == 1
                           ? AppColors.datingCardsPink
                           : AppColors.datingStepperInactive,
                       borderRadius: const BorderRadius.only(
@@ -55,7 +55,7 @@ class _CustomStepperState extends State<CustomStepper> {
                   child: Container(
                     height: 3,
                     decoration: BoxDecoration(
-                      color: mainProfileCtrl.currentStep > 1
+                      color: mainProfileCtrl.currentStep == 2
                           ? AppColors.datingCardsPink
                           : AppColors.datingStepperInactive,
                       //borderRadius: BorderRadius.all(Radius.circular(4)),
@@ -74,7 +74,7 @@ class _CustomStepperState extends State<CustomStepper> {
                   child: Container(
                     height: 3,
                     decoration: BoxDecoration(
-                      color: mainProfileCtrl.currentStep > 2
+                      color: mainProfileCtrl.currentStep == 3
                           ? AppColors.datingCardsPink
                           : AppColors.datingStepperInactive,
                       //borderRadius: BorderRadius.all(Radius.circular(4)),
@@ -93,7 +93,7 @@ class _CustomStepperState extends State<CustomStepper> {
                   child: Container(
                     height: 3,
                     decoration: BoxDecoration(
-                      color: mainProfileCtrl.currentStep > 3
+                      color: mainProfileCtrl.currentStep == 4
                           ? AppColors.datingCardsPink
                           : AppColors.datingStepperInactive,
                       borderRadius: const BorderRadius.only(

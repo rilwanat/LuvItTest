@@ -23,7 +23,7 @@ class MainProfileController extends GetxController {
   }
 
   nextStep() {
-    if (_currentStep.value < 4) {
+    if (_currentStep.value < 5) {
       _currentStep.value++;
       update();
       //print("currentStep: " + currentStep.value.toString());
