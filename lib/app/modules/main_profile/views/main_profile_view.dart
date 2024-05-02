@@ -12,8 +12,11 @@ class MainProfileView extends GetView<MainProfileController> {
   @override
   Widget build(BuildContext context) {
 
-    Map<String, String> items = {
+    Map<String, String> itemsHeader = {
       "진지한 연애를 찾는 중": "💖",
+    };
+    Map<String, String> items = {
+      //"진지한 연애를 찾는 중": "💖",
       "전혀 안 함": "🍸",
       "비흡연": "🚬",
       "매일 1시간 이상": "💪",
@@ -133,6 +136,7 @@ class MainProfileView extends GetView<MainProfileController> {
                         //     border: Border.all(width: 1, color: AppColors.datingCardsBorder),
                         //     //borderRadius: BorderRadius.circular(100)
                         // ),
+
                         child: GestureDetector(
                           onTapDown: (TapDownDetails details) {
 
@@ -167,28 +171,39 @@ class MainProfileView extends GetView<MainProfileController> {
                             child: Stack(
                               children: [
 
-                                Obx(() => Positioned.fill(
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(16),
-                                    child: controller.currentStep == 1 ?
-                                    Image.asset(
-                                      'assets/images/086e98d6b549c3407b40a418953d499f.png',
+                                Obx(() => Container(
 
-                                      fit: BoxFit.cover, // Adjusts the image to cover the entire container
-                                    ) :
-                                    controller.currentStep == 2 ?
-                                    Image.asset(
-                                      'assets/images/1a4b0445adcae15f1cf276d4de1eefa2.png',
+                                  child: Positioned.fill(
+                                    child: Container(
 
-                                      fit: BoxFit.cover,
-                                    ) :
-                                    Image.asset(
-                                      'assets/images/79c8c50a1ffeaa63e0e8de84ce83a158.png',
 
-                                      fit: BoxFit.cover, // Adjusts the image to cover the entire container
+
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(16),
+                                        child: controller.currentStep == 1 ?
+                                        Container(
+                                          child: Image.asset(
+                                            'assets/images/086e98d6b549c3407b40a418953d499f.png',
+
+                                            fit: BoxFit.cover, // Adjusts the image to cover the entire container
+                                          ),
+                                        ) :
+                                        controller.currentStep == 2 ?
+                                        Image.asset(
+                                          'assets/images/1a4b0445adcae15f1cf276d4de1eefa2.png',
+
+                                          fit: BoxFit.cover,
+                                        ) :
+                                        Image.asset(
+                                          'assets/images/79c8c50a1ffeaa63e0e8de84ce83a158.png',
+
+                                          fit: BoxFit.cover, // Adjusts the image to cover the entire container
+                                        ),
+                                      ),
                                     ),
                                   ),
                                 ),),
+
 
 
                                 Container(
@@ -583,7 +598,7 @@ class MainProfileView extends GetView<MainProfileController> {
                                               Container(
                                                 width: 198,
                                                 height: 233,
-                                                color: AppColors.datingPlacesColor,
+                                                // color: AppColors.datingPlacesColor,
                                                 child: Column(
                                                   crossAxisAlignment: CrossAxisAlignment.start,
                                                   children: [
@@ -657,57 +672,88 @@ class MainProfileView extends GetView<MainProfileController> {
                                                             ),
                                                           ],
                                                         ),
+                                                        // SizedBox(height: 4,),
 
+
+
+                                                        Align(
+                                                          alignment: Alignment.centerLeft,
+                                                          child: Container(
+                                                            padding: EdgeInsets.symmetric(horizontal: 12),
+                                                            width: 157,
+                                                            height: 30,
+                                                            decoration: BoxDecoration(
+                                                              // color: AppColors.datingCardsLikes,
+                                                                color: AppColors.datingCardsPink.withOpacity(0.3),
+                                                                borderRadius: BorderRadius.circular(100),
+                                                                border: Border.all(color: AppColors.datingCardsPink, width: 1)
+                                                            ),
+                                                            child: Row(
+                                                              mainAxisAlignment: MainAxisAlignment.start,
+                                                              children: [
+
+                                                                Text(
+                                                                  "${itemsHeader.entries.elementAt(0).value} ${itemsHeader.entries.elementAt(0).key}",
+                                                                  // overflow: TextOverflow.ellipsis,
+                                                                  maxLines: 1,
+                                                                  style: const TextStyle(
+                                                                    color: AppColors.datingCardsWhite,
+                                                                    fontFamily: 'Pretendard',
+                                                                    fontSize: 14,
+                                                                    fontWeight: FontWeight.w500,
+                                                                    height: 1.19285714,
+                                                                    letterSpacing: -0.6,
+
+                                                                  ),
+                                                                ),
+                                                                const SizedBox(
+                                                                  width: 6,
+                                                                )
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ),
+
+
+
+                                                        SizedBox(height: 8),
 
 
                                                         Container(
-                                                          height: 140,
-                                                          //color: AppColors.datingPlacesColor,
-                                                          child: GridView.builder(
-                                                            // gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                                                            gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                                                              // crossAxisCount: 2,
-                                                              maxCrossAxisExtent: 150, //
-                                                              mainAxisSpacing: 8,
-                                                              crossAxisSpacing: 8,
-                                                              childAspectRatio: 3,
-                                                            ),
-                                                            itemCount: items.length,
-                                                            itemBuilder: (BuildContext context, int index) {
-                                                              var entry = items.entries.elementAt(index);
+                                                            //width: double.infinity,
+                                                            child: Wrap(
+                                                             spacing: 6,
+                                                            runSpacing: 8,
+                                                            // runAlignment: WrapAlignment.start, // Align children at the start of each line
+                                                            children: items.entries.map((entry) {
                                                               return Container(
-                                                                padding: EdgeInsets.symmetric(horizontal: 12),
-                                                                //width: 72,
                                                                 height: 30,
                                                                 decoration: BoxDecoration(
-                                                                  color: AppColors.datingCardsLikes,
+                                                                  color: AppColors.datingCardsBlack,
                                                                   borderRadius: BorderRadius.circular(100),
+                                                                  // border: Border.all(color: AppColors.datingCardsPink, width: 1),
                                                                 ),
-                                                                child: Row(
-                                                                  mainAxisAlignment: MainAxisAlignment.center,
-                                                                  children: [
-
-                                                                    Text(
-                                                                    // items[index],
-                                                                      "${entry.value}  ${entry.key}",
-                                                                      style: const TextStyle(
-                                                                        color: AppColors.datingCardsWhite,
-                                                                        fontFamily: 'Pretendard',
-                                                                        fontSize: 14,
-                                                                        fontWeight: FontWeight.w500,
-                                                                        height: 1.19285714,
-                                                                        letterSpacing: -0.6,
-                                                                      ),
-                                                                    ),
-                                                                    const SizedBox(
-                                                                      width: 6,
-                                                                    )
-                                                                  ],
+                                                                child: Text(
+                                                                  "${entry.value}  ${entry.key}",
+                                                                  maxLines: 1,
+                                                                  overflow: TextOverflow.ellipsis,
+                                                                  style: const TextStyle(
+                                                                    color: AppColors.datingCardsWhite,
+                                                                    fontFamily: 'Pretendard',
+                                                                    fontSize: 14,
+                                                                    fontWeight: FontWeight.w500,
+                                                                    height: 1.19285714,
+                                                                    letterSpacing: -0.6,
+                                                                  ),
+                                                                  textAlign: TextAlign.center,
                                                                 ),
                                                               );
-                                                            },
+                                                            }).toList(),
                                                           ),
                                                         ),
+
+
+
 
 
 
