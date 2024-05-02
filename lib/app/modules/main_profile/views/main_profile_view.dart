@@ -319,7 +319,7 @@ class MainProfileView extends GetView<MainProfileController> {
                                                                     style: TextStyle(
                                                                       color: AppColors.datingCardsWhite,
                                                                       fontFamily: 'Pretendard',
-                                                                      fontSize: 28,
+                                                                      fontSize: 26,//28,
                                                                       fontWeight: FontWeight.w700,
                                                                       height: 1.19285714, // Calculated line height: 16.71px / 14px = 1.19285714
                                                                       letterSpacing: -0.6,
@@ -495,7 +495,7 @@ class MainProfileView extends GetView<MainProfileController> {
                                                                       style: TextStyle(
                                                                         color: AppColors.datingCardsWhite,
                                                                         fontFamily: 'Pretendard',
-                                                                        fontSize: 28,
+                                                                        fontSize: 26, //28,
                                                                         fontWeight: FontWeight.w700,
                                                                         height: 1.19285714, // Calculated line height: 16.71px / 14px = 1.19285714
                                                                         letterSpacing: -0.6,
@@ -524,7 +524,7 @@ class MainProfileView extends GetView<MainProfileController> {
                                                                   style: TextStyle(
                                                                     color: AppColors.datingCardsWhite,
                                                                     fontFamily: 'Pretendard',
-                                                                    fontSize: 14, //15
+                                                                    fontSize: 12, //14, //15
                                                                     fontWeight: FontWeight.w300,
                                                                     height: 1.19285714, // Calculated line height: 16.71px / 14px = 1.19285714
                                                                     letterSpacing: -0.6,
@@ -673,7 +673,7 @@ class MainProfileView extends GetView<MainProfileController> {
                                                                 style: TextStyle(
                                                                   color: AppColors.datingCardsWhite,
                                                                   fontFamily: 'Pretendard',
-                                                                  fontSize: 28,
+                                                                  fontSize: 26, //8,
                                                                   fontWeight: FontWeight.w700,
                                                                   height: 1.19285714, // Calculated line height: 16.71px / 14px = 1.19285714
                                                                   letterSpacing: -0.6,
@@ -703,7 +703,7 @@ class MainProfileView extends GetView<MainProfileController> {
                                                           alignment: Alignment.centerLeft,
                                                           child: Container(
                                                             padding: EdgeInsets.symmetric(horizontal: 12),
-                                                            width: 157,
+                                                            width: 180,
                                                             height: 30,
                                                             decoration: BoxDecoration(
                                                               // color: AppColors.datingCardsLikes,
