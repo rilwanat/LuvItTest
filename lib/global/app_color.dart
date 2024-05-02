@@ -8,6 +8,10 @@ class AppColors {
   static const datingCardsBackground = Color(0xFF0E0D0D);
   static const datingCardsBorder = Color(0xFF212121);
 
+
+  static const datingCardsLikes = Color(0xFF1A1A1A);
+
+
   static const datingPlacesColor = Color(0xFF3A3A3A);
 
   static const datingChineseColor = Color(0xFFFCFCFC);
