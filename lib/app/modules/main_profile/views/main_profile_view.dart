@@ -122,11 +122,14 @@ class MainProfileView extends GetView<MainProfileController> {
                   itemCount: 6,
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (BuildContext context, int index) {
+
+                    // int actualIndex = index % items.length;
+
                     return Container(
                       //height: 20,
                       // color: AppColors.priceWatchDarkTextGray,
                       margin: const EdgeInsets.symmetric(vertical: 10),
-                      //padding: const EdgeInsets.symmetric(horizontal: 10),
+                      // padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: Obx(() => Container(
                         width: 340,
                         height: height(context) * .8,//600,
@@ -304,6 +307,7 @@ class MainProfileView extends GetView<MainProfileController> {
                                                             ],
                                                           ),
                                                         ),
+                                                        SizedBox(height: 2,),
                                                         Column(
                                                           children: [
                                                             Row(
@@ -337,6 +341,7 @@ class MainProfileView extends GetView<MainProfileController> {
                                                                 ),
                                                               ],
                                                             ),
+                                                            SizedBox(height: 2,),
                                                             Container(
                                                               child: const Row(
                                                                 children: [
@@ -478,6 +483,7 @@ class MainProfileView extends GetView<MainProfileController> {
                                                               ],
                                                             ),
                                                           ),
+                                                          SizedBox(height: 2,),
                                                           Column(
                                                             children: [
                                                               Row(
@@ -511,6 +517,7 @@ class MainProfileView extends GetView<MainProfileController> {
                                                                   ),
                                                                 ],
                                                               ),
+                                                              SizedBox(height: 2,),
                                                               Container(
                                                                 child: const Text(
                                                                   '서로 아껴주고 힘이 되어줄 사람 찾아요 선릉으로 직장 다니고 있고 여행 좋아해요 이상한 이야기하시는 분 바로 차단입니다',
@@ -736,23 +743,16 @@ class MainProfileView extends GetView<MainProfileController> {
 
 
                                                         Container(
-                                                            //width: double.infinity,
-                                                            child: Wrap(
-                                                             spacing: 6,
+                                                          //width: double.infinity, // Remove this to prevent stretching
+                                                          child: Wrap(
+                                                            spacing: 6,
                                                             runSpacing: 8,
                                                             // runAlignment: WrapAlignment.start, // Align children at the start of each line
                                                             children: items.entries.map((entry) {
-                                                              return Container(
-                                                                height: 30,
-                                                                decoration: BoxDecoration(
-                                                                  color: AppColors.datingCardsBlack,
-                                                                  borderRadius: BorderRadius.circular(100),
-                                                                  // border: Border.all(color: AppColors.datingCardsPink, width: 1),
-                                                                ),
-                                                                child: Text(
-                                                                  "${entry.value}  ${entry.key}",
-                                                                  maxLines: 1,
-                                                                  overflow: TextOverflow.ellipsis,
+                                                              // Create a TextPainter to calculate the text width
+                                                              TextPainter textPainter = TextPainter(
+                                                                text: TextSpan(
+                                                                  text: "${entry.value}  ${entry.key}",
                                                                   style: const TextStyle(
                                                                     color: AppColors.datingCardsWhite,
                                                                     fontFamily: 'Pretendard',
@@ -761,12 +761,47 @@ class MainProfileView extends GetView<MainProfileController> {
                                                                     height: 1.19285714,
                                                                     letterSpacing: -0.6,
                                                                   ),
-                                                                  textAlign: TextAlign.center,
+                                                                ),
+                                                                textDirection: TextDirection.ltr,
+                                                              );
+
+                                                              // Layout the text to get its width
+                                                              textPainter.layout();
+                                                              double textWidth = textPainter.width;
+
+                                                              // Add some padding to the calculated width
+                                                              double containerWidth = textWidth + 20; // Adjust padding as needed
+
+                                                              return Container(
+                                                                width: containerWidth, // Set fixed width
+                                                                height: 30,
+                                                                decoration: BoxDecoration(
+                                                                  color: AppColors.datingCardsBlack,
+                                                                  borderRadius: BorderRadius.circular(100),
+                                                                  // border: Border.all(color: AppColors.datingCardsPink, width: 1),
+                                                                ),
+                                                                child: Center(
+                                                                  child: Text(
+                                                                    "${entry.value}  ${entry.key}",
+                                                                    maxLines: 1,
+                                                                    overflow: TextOverflow.ellipsis,
+                                                                    style: const TextStyle(
+                                                                      color: AppColors.datingCardsWhite,
+                                                                      fontFamily: 'Pretendard',
+                                                                      fontSize: 14,
+                                                                      fontWeight: FontWeight.w500,
+                                                                      height: 1.19285714,
+                                                                      letterSpacing: -0.6,
+                                                                    ),
+                                                                    textAlign: TextAlign.center,
+                                                                  ),
                                                                 ),
                                                               );
                                                             }).toList(),
                                                           ),
                                                         ),
+
+
 
 
 
@@ -803,6 +838,72 @@ class MainProfileView extends GetView<MainProfileController> {
                   }),
             ),
 
+          ],
+        ),
+      ),
+      bottomSheet: Container(
+        height: 64,
+        color: AppColors.datingCardsBlack,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: 64, height: 48,
+              child: Column(
+                children: [
+                  SizedBox(
+                    width: 28, height: 28,
+                    child: Image.asset("assets/images/icons/ic_GNB-1.png"),
+                  ),
+                  Text("홈", style: TextStyle(fontSize: 12, color: AppColors.datingCardsPink),)
+                ],
+              ),
+            ),
+            SizedBox(
+              width: 64, height: 48,
+              child: Column(
+                children: [
+                  SizedBox(
+                    width: 28, height: 28,
+                    child: Image.asset("assets/images/icons/ic_GNB-2.png"),
+                  ),
+                  Text("스팟", style: TextStyle(fontSize: 12, color: AppColors.datingPlacesColor),)
+                ],
+              ),
+            ),
+            Column(
+              children: [
+                SizedBox(
+                  width: 50, height: 50,
+                  child: Image.asset("assets/images/icons/ic_GNB_like.png"),
+                ),
+              ],
+            ), // Larger center icon
+            SizedBox(
+              width: 64, height: 48,
+              child: Column(
+                children: [
+                  SizedBox(
+                    width: 28, height: 28,
+                    child: Image.asset("assets/images/icons/ic_GNB-3.png"),
+                  ),
+                  Text("채팅", style: TextStyle(fontSize: 12, color: AppColors.datingPlacesColor),)
+                ],
+              ),
+            ),
+            SizedBox(
+              width: 64, height: 48,
+              child: Column(
+                children: [
+                  SizedBox(
+                    width: 28, height: 28,
+                    child: Image.asset("assets/images/icons/ic_GNB-4.png"),
+                  ),
+                  Text("마이", style: TextStyle(fontSize: 12, color: AppColors.datingPlacesColor),)
+                ],
+              ),
+            ),
           ],
         ),
       ),
