@@ -21,7 +21,7 @@ class MainProfileView extends GetView<MainProfileController> {
       "비흡연": "🚬",
       "매일 1시간 이상": "💪",
       "만나는 걸 좋아함": "🤝",
-      "INFP": "", // You didn't specify an emoji for this item
+      "INFP": "",
     };
 
 
@@ -87,7 +87,7 @@ class MainProfileView extends GetView<MainProfileController> {
                         // crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Container(
-                            padding: EdgeInsets.all(3),
+                            padding: const EdgeInsets.all(3),
                             width: 20, height: 20,
                             child: Image.asset("assets/images/icons/Star 1.png"),
                           ),
@@ -116,7 +116,7 @@ class MainProfileView extends GetView<MainProfileController> {
               ),
             ),
             Container(
-              height: height(context) * .8,
+              height: height(context) * .78, //.8,
               //color: AppColors.datingCardsPink,
               child: ListView.builder(
                   itemCount: 6,
@@ -248,14 +248,14 @@ class MainProfileView extends GetView<MainProfileController> {
                                         alignment: Alignment.center,
                                         width: 340,
                                         height: 151,//height(context) * .8,
-                                        margin: const EdgeInsets.only(top: 400),//449),
+                                        margin: const EdgeInsets.only(top: 396),//449),
                                         // color: Colors.white,
                                         child: Container(
                                           width: 292,
                                           height: 151,
                                           padding: EdgeInsets.zero,
                                           decoration: const BoxDecoration(
-                                            //color: Colors.deepOrange,
+                                            // color: Colors.deepOrange,
                                           ),
                                           child: Column(
                                             mainAxisAlignment: MainAxisAlignment.end,
