@@ -171,42 +171,58 @@ class MainProfileView extends GetView<MainProfileController> {
                             child: Stack(
                               children: [
 
-                                Obx(() => Container(
-
-                                  child: Positioned.fill(
-                                    child: Container(
-
-
-
-                                      child: ClipRRect(
-                                        borderRadius: BorderRadius.circular(16),
-                                        child: controller.currentStep == 1 ?
-                                        Container(
-                                          child: Image.asset(
-                                            'assets/images/086e98d6b549c3407b40a418953d499f.png',
-
-                                            fit: BoxFit.cover, // Adjusts the image to cover the entire container
+                                Obx(
+                                      () => Container(
+                                    child: Positioned.fill(
+                                      child: Stack(
+                                        children: [
+                                          // Container with the image
+                                          Positioned.fill(
+                                            child: ClipRRect(
+                                              borderRadius: BorderRadius.circular(16),
+                                              child: controller.currentStep == 1
+                                                  ? Image.asset(
+                                                'assets/images/086e98d6b549c3407b40a418953d499f.png',
+                                                fit: BoxFit.cover,
+                                              )
+                                                  : controller.currentStep == 2
+                                                  ? Image.asset(
+                                                'assets/images/1a4b0445adcae15f1cf276d4de1eefa2.png',
+                                                fit: BoxFit.cover,
+                                              )
+                                                  : Image.asset(
+                                                'assets/images/79c8c50a1ffeaa63e0e8de84ce83a158.png',
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
                                           ),
-                                        ) :
-                                        controller.currentStep == 2 ?
-                                        Image.asset(
-                                          'assets/images/1a4b0445adcae15f1cf276d4de1eefa2.png',
-
-                                          fit: BoxFit.cover,
-                                        ) :
-                                        Image.asset(
-                                          'assets/images/79c8c50a1ffeaa63e0e8de84ce83a158.png',
-
-                                          fit: BoxFit.cover, // Adjusts the image to cover the entire container
-                                        ),
+                                          // Container with the linear gradient
+                                          Positioned.fill(
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                gradient: LinearGradient(
+                                                  begin: Alignment.bottomCenter,
+                                                  end: Alignment.topCenter,
+                                                  colors: [
+                                                    Colors.black.withOpacity(0.6), // Adjust opacity as needed
+                                                    Colors.transparent,
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        ],
                                       ),
                                     ),
                                   ),
-                                ),),
+                                ),
 
 
 
-                                Container(
+
+
+
+                    Container(
                                   width: 340,
                                   height:  height(context) * .8,//600,
                                   padding: const EdgeInsets.fromLTRB(5, 10, 5, 6),
